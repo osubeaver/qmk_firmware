@@ -47,7 +47,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //#define S_SYMBO LT(planck_layers::_SYMBOL, KC_S)
 
 #define CTL_ESC CTL_T(KC_ESC)
-#define ALT_PRN LALT_T(KC_LPRN)
+#define ALT_PRN LALT_T(KC_9)
+#define ALT_SPC LALT_T(KC_SPC)
 #define SFT_ENT RSFT_T(KC_ENT)
 #define L_SQARE KC_LBRC
 #define R_SQARE KC_RBRC
@@ -55,20 +56,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |  \   |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Back |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | c/Esc|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | s/Ent|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |   {  |   [  |alt/( | GUI  | BSPC |    Space    |Raise |      |  )   |  ]   |  }   |
+ * |   {  |   [  |alt/( | GUI  | BSPC | a/Spc| Spc  |Raise |   \  |  )   |  ]   |  }   |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
-  {KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS },
-  {CTL_ESC,  A_ARROW, KC_S,    A_DIGIT, KC_F,    KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT },
-  {KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT},
-  {KC_LCBR,  L_SQARE, ALT_PRN, KC_LGUI, KC_BSPC, KC_SPC, KC_SPC, RAISE, _______, KC_RPRN, R_SQARE, KC_RCBR }
+  {KC_TAB,   KC_Q,    KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSPC },
+  {CTL_ESC,  A_ARROW, A_SYMBOL, A_DIGIT, KC_F,    KC_G,    KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT },
+  {KC_LSFT,  KC_Z,    KC_X,     KC_C,    KC_V,    KC_B,    KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT},
+  {KC_LCBR,  L_SQARE, KC_LPRN,  KC_LGUI, LOWER,   ALT_SPC, KC_SPC, RAISE, KC_DEL, KC_RPRN, R_SQARE, KC_RCBR }
 },
 
 /* Lower
@@ -170,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |  1   |  2   |  3   |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |  0   |  0   |      |      |      |
+ * |      |      |      |      |      |             |  0   |  0   |  .   |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_DIGITS] = { /* Digits */
@@ -182,7 +183,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Digits
  * ,-----------------------------------------------------------------------------------.
- * |      |  !   |  @   |  #   |  $   |  %   |  ^   |  &   |  *   |      |  _   |  +   |
+ * |      |  !   |  @   |  #   |  $   |  %   |  ^   |  &   |  *   |  ~   |  _   |  +   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |  $   |  %   |  ^   |  -   |  =   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -194,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMBOL] = { /* Digits */
   {KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR, KC_ASTR, KC_TILD,  KC_UNDS,  KC_PLUS},
   {_______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_DLR,  KC_PERC, KC_CIRC,  KC_MINS,  KC_EQL},
-  {_______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_EXLM, KC_AT,   KC_HASH,  _______,  _______},
+  {_______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_EXLM, KC_AT,   KC_HASH,  KC_BSLS,  KC_PIPE},
   {_______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______, _______,  _______,  _______}
 },
 
