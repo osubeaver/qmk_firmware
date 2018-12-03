@@ -26,6 +26,7 @@ enum planck_layers {
   _PLOVER,
   _ADJUST,
   _ARROWS,
+  _MOUSE,
   _SYMBOL,
   _DIGITS
 };
@@ -42,6 +43,7 @@ enum planck_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #define A_ARROW  LT(_ARROWS, KC_A)
+#define A_MOUSE  LT(_MOUSE,  KC_F)
 #define A_DIGIT  LT(_DIGITS, KC_D)
 #define A_SYMBOL LT(_SYMBOL, KC_S)
 //#define S_SYMBO LT(planck_layers::_SYMBOL, KC_S)
@@ -52,6 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define SFT_ENT RSFT_T(KC_ENT)
 #define L_SQARE KC_LBRC
 #define R_SQARE KC_RBRC
+
 
 
 /* Qwerty
@@ -67,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   {KC_TAB,   KC_Q,    KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSPC },
-  {CTL_ESC,  A_ARROW, A_SYMBOL, A_DIGIT, KC_F,    KC_G,    KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT },
+  {CTL_ESC,  A_ARROW, A_SYMBOL, A_DIGIT, A_MOUSE,    KC_G,    KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT },
   {KC_LSFT,  KC_Z,    KC_X,     KC_C,    KC_V,    KC_B,    KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT},
   {KC_LCBR,  L_SQARE, KC_LPRN,  KC_LGUI, LOWER,   ALT_SPC, KC_SPC, RAISE, KC_DEL, KC_RPRN, R_SQARE, KC_RCBR }
 },
@@ -161,6 +164,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______,  _______,  _______,  _______,  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______},
   {_______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______},
   {_______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______}
+},
+
+/* Mouse
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      | Home | PGDN | PGUP | End  |      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      | Left | Down |  Up  | Right|      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_MOUSE] = { /* Arrows */
+  {_______,  _______,  _______,  _______,  _______,  _______,  KC_WH_U,  KC_BTN1,  KC_MS_U,  KC_BTN2,  _______,  _______},
+  {_______,  _______,  _______,  _______,  _______,  _______,  KC_WH_D,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_BTN2,  _______},
+  {_______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_WH_L,  KC_BTN3,  KC_WH_R,  _______,  _______},
+  {_______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_ACL0,  KC_ACL1,  KC_ACL2,  _______,  _______}
 },
 
 /* Digits
